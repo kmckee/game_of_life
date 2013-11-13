@@ -21,5 +21,9 @@ describe Board do
       board = Board.new [["X", "1"]]
       board.get_neighbor_values_for(0, 0).should == ["1"]
     end
+    it "works with values that don't have values to the right" do
+      board = Board.new [["1", "X"]]
+      board.get_neighbor_values_for(0, 1).should == ["1"]
+    end
   end
 end

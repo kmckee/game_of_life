@@ -20,7 +20,7 @@ class Board
     left_column = column_index - 1
     right_column = column_index + 1
     neighbors << row[left_column] if left_column >= 0
-    neighbors << row[right_column]
+    neighbors << row[right_column] if  right_column <= row.length - 1
     neighbors
   end
     
