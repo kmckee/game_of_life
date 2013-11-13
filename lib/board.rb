@@ -17,8 +17,10 @@ class Board
   def get_neighbor_values_for row_index, column_index
     neighbors = []
     row = @board[row_index]
-    neighbors << row[column_index - 1]
-    neighbors << row[column_index + 1]
+    left_column = column_index - 1
+    right_column = column_index + 1
+    neighbors << row[left_column] if left_column >= 0
+    neighbors << row[right_column]
     neighbors
   end
     
