@@ -2,17 +2,25 @@ require 'spec_helper'
 
 describe Board do
   describe "#get_neighbor_values_for" do
-    it "returns values to left or right of the specified cell" do
-      board = Board.new [["1", "X", "2"]]
-      board.get_neighbor_values_for(0, 1).should == ["1", "2"]
+    context "single row" do
+      it "returns values to left or right of the specified cell" do
+        board = Board.new [["1", "X", "2"]]
+        board.get_neighbor_values_for(0, 1).should == ["1", "2"]
+      end
+      it "works with values that don't have values to the left" do
+        board = Board.new [["X", "1"]]
+        board.get_neighbor_values_for(0, 0).should == ["1"]
+      end
+      it "works with values that don't have values to the right" do
+        board = Board.new [["1", "X"]]
+        board.get_neighbor_values_for(0, 1).should == ["1"]
+      end
     end
-    it "works with values that don't have values to the left" do
-      board = Board.new [["X", "1"]]
-      board.get_neighbor_values_for(0, 0).should == ["1"]
-    end
-    it "works with values that don't have values to the right" do
-      board = Board.new [["1", "X"]]
-      board.get_neighbor_values_for(0, 1).should == ["1"]
+    context 'multiple rows' do
+      it "returns values in the row above the specified cell"
+      it "returns values in the row below the specified cell"
+      it "works when the specified cell is in the first row"
+      it "works when the specified cell is in the last row"
     end
   end
   describe "#to_s" do
