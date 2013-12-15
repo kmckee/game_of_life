@@ -7,13 +7,6 @@ class Board
   def initialize board
     @board = board
   end
-  def to_s
-    string = ""
-    @board.each do |row|
-      string += row_to_s row
-    end
-    string
-  end
   def get_neighbor_values_for row_index, column_index
     neighbors = []
     row = @board[row_index]
@@ -22,6 +15,16 @@ class Board
     neighbors << row[left_column] if left_column >= 0
     neighbors << row[right_column] if  right_column <= row.length - 1
     neighbors
+  end
+  def get_live_neighbor_count row_index, column_index
+    get_neighbor_values_for(row_index, column_index).count { |value| value == "X" } 
+  end
+  def to_s
+    string = ""
+    @board.each do |row|
+      string += row_to_s row
+    end
+    string
   end
     
   private 
