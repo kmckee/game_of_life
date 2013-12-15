@@ -10,10 +10,11 @@ class Board
   def get_neighbor_values_for row_index, column_index
     neighbors = []
     row = @board[row_index]
+    last_column = row.length - 1
     left_column = column_index - 1
     right_column = column_index + 1
     neighbors << row[left_column] if left_column >= 0
-    neighbors << row[right_column] if  right_column <= row.length - 1
+    neighbors << row[right_column] if  right_column <= last_column 
     neighbors
   end
   def get_live_neighbor_count row_index, column_index
@@ -22,14 +23,14 @@ class Board
   def to_s
     string = ""
     @board.each do |row|
-      string += row_to_s row
+      string += row.to_row_string
     end
     string
   end
-    
-  private 
+end
 
-  def row_to_s row 
-    "| " + row.join(" | ") + " |\n"
+class Array
+  def to_row_string
+    "| " + self.join(" | ") + " |\n"
   end
 end
