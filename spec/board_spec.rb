@@ -17,10 +17,23 @@ describe Board do
       end
     end
     context 'multiple rows' do
-      it "returns values in the row above the specified cell"
-      it "returns values in the row below the specified cell"
-      it "works when the specified cell is in the first row"
-      it "works when the specified cell is in the last row"
+      it "returns values in the row above the specified cell" do
+        board = Board.new [["1", "2", "3"], 
+                           [".", "X", "."]]
+        board.get_neighbor_values_for(1,1).should include("1", "2", "3")
+      end
+      it "returns values in the row below the specified cell" do
+        board = Board.new [["1", "2", "3"], 
+                           [".", "X", "."],
+                           ["4", "5", "6"]]
+        board.get_neighbor_values_for(1,1).should include("4", "5", "6")
+      end
+      it "does not include values from wrapping around the grid" do
+        board = Board.new [["1", "2", "3"],
+                           ["4", "5", "6"],
+                           ["7", "8", "9"]]
+        board.get_neighbor_values_for(0, 0).should =~ ["2", "4", "5"]
+      end
     end
   end
   describe "#to_s" do

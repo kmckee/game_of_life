@@ -1,4 +1,4 @@
-Feature:
+Feature: Evolution of the game board
 
   Scenario: Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
     Given the following game board:
