@@ -36,6 +36,16 @@ describe Board do
       end
     end
   end
+  describe "#is_cell_alive?" do
+    it 'returns true if the cell has an X' do
+      board = Board.new [["X"]]
+      board.is_cell_alive?(0,0).should be_true
+    end
+    it 'returns false if the cell does not have an X' do
+      board = Board.new [["."]]
+      board.is_cell_alive?(0,0).should be_false
+    end
+  end
   describe "#to_s" do
     it "converts a single row correctly" do
       board = Board.new [[".", ".", "."]]

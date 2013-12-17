@@ -17,6 +17,9 @@ class GameOfLife
     end
     @current_board = Board.new new_board
   end
+  def is_cell_alive? x, y
+    @current_board.is_cell_alive? x,y
+  end
   def board
     @current_board.to_s 
   end

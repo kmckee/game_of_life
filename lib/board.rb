@@ -1,6 +1,5 @@
 require 'forwardable'
 
-
 class Board
   extend Forwardable
   def_delegator :@board, :each_with_index
@@ -35,6 +34,9 @@ class Board
   end
   def get_live_neighbor_count row_index, column_index
     get_neighbor_values_for(row_index, column_index).count { |value| value == "X" } 
+  end
+  def is_cell_alive? x,y
+    @board[x][y] == 'X'
   end
   def to_s
     string = ""
