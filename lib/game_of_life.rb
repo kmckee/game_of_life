@@ -7,7 +7,8 @@ class GameOfLife
     @current_board.each_with_index do |row,row_index|
       new_row = []
       row.each_with_index do |value, cell_index|
-        if (@current_board.get_live_neighbor_count(row_index, cell_index) == 3)
+        live_neighbors = @current_board.get_live_neighbor_count(row_index, cell_index) 
+        if (live_neighbors == 3 || live_neighbors == 2)
           new_row << "X"
         else
           new_row << "."

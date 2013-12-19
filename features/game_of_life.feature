@@ -18,9 +18,9 @@ Feature: Evolution of the game board
       | . | . | . |
     When a generation passes
     Then the board should look like:
-      | . | . | . |
+      | X | X | X |
       | . | X | . |
-      | . | . | . |
+      | . | X | . |
   
   Scenario: Any live cell with more than three live neighbours dies, as if by overcrowding.
     Given the following game board:
@@ -31,3 +31,9 @@ Feature: Evolution of the game board
     Then the center cell should be dead 
 
   Scenario: Any live cell with two or three live neighbours lives on to the next generation.
+    Given the following game board:
+      | . | X | . |
+      | X | . | . |
+      | . | . | . |
+    When a generation passes
+    Then the center cell should be alive
