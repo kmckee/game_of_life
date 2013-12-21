@@ -19,6 +19,6 @@ class BoardEvolver
   end
   def get_new_value_for_cell_at x, y
     live_neighbors = @current_board.get_live_neighbor_count(x, y) 
-    (live_neighbors == 3 || live_neighbors == 2) ? "X" : "."
+    (live_neighbors == 3 || (live_neighbors == 2 && @current_board.is_cell_alive?(x, y))) ? "X" : "."
   end
 end
