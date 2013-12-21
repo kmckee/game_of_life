@@ -2,14 +2,14 @@ require 'forwardable'
 
 class Board
   extend Forwardable
-  def_delegator :@board, :each_with_index
+  def_delegators :@rows, :each_with_index, :[]
   def initialize board
-    @board = board
+    @rows = board
   end
   def get_neighbor_values_for row_index, column_index
-    previous_row = @board[row_index - 1] if row_index > 0
-    selected_row = @board[row_index]
-    next_row = @board[row_index + 1]
+    previous_row = @rows[row_index - 1] if row_index > 0
+    selected_row = @rows[row_index]
+    next_row = @rows[row_index + 1]
     
     left_column = column_index - 1
     right_column = column_index + 1
@@ -24,11 +24,11 @@ class Board
     get_neighbor_values_for(row_index, column_index).count { |value| value == "X" } 
   end
   def is_cell_alive? x,y
-    @board[x][y] == 'X'
+    @rows[x][y] == 'X'
   end
   def to_s
     string = ""
-    @board.each do |row|
+    @rows.each do |row|
       string += row.to_row_string
     end
     string
