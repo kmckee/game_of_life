@@ -37,3 +37,69 @@ Feature: Evolution of the game board
       | . | . | . |
     When a generation passes
     Then the center cell should be alive
+
+    @ignore
+  Scenario: Block
+    Given the following game board:
+      | . | . | . | . | . |
+      | . | x | x | . | . |
+      | . | x | x | . | . |
+      | . | . | . | . | . |
+      | . | . | . | . | . |
+    When a generation passes
+    Then the board should look like:
+      | . | . | . | . | . |
+      | . | x | x | . | . |
+      | . | x | x | . | . |
+      | . | . | . | . | . |
+      | . | . | . | . | . |
+
+    @ignore
+  Scenario: Beehive
+    Given the following game board:
+      | . | . | . | . | . | . |
+      | . | . | x | x | . | . |
+      | . | x | . | . | x | . |
+      | . | . | x | x | . | . |
+      | . | . | . | . | . | . |
+    When a generation passes
+    Then the board should look like:
+      | . | . | . | . | . | . |
+      | . | . | x | x | . | . |
+      | . | x | . | . | x | . |
+      | . | . | x | x | . | . |
+      | . | . | . | . | . | . |
+
+    @ignore
+  Scenario: Loaf
+    Given the following game board:
+      | . | . | . | . | . | . |
+      | . | . | x | x | . | . |
+      | . | x | . | . | x | . |
+      | . | . | x | . | x | . |
+      | . | . | . | x | . | . |
+      | . | . | . | . | . | . |
+    When a generation passes
+    Then the board should look like:
+      | . | . | . | . | . | . |
+      | . | . | x | x | . | . |
+      | . | x | . | . | x | . |
+      | . | . | x | . | x | . |
+      | . | . | . | x | . | . |
+      | . | . | . | . | . | . |
+
+    @ignore
+  Scenario: Boat
+    Given the following game board:
+      | . | . | . | . | . |
+      | . | x | x | . | . |
+      | . | x | . | x | . |
+      | . | . | x | . | . |
+      | . | . | . | . | . |
+    When a generation passes
+    Then the board should look like:
+      | . | . | . | . | . |
+      | . | x | x | . | . |
+      | . | x | . | x | . |
+      | . | . | x | . | . |
+      | . | . | . | . | . |
