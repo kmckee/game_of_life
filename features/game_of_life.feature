@@ -11,7 +11,7 @@ Feature: Evolution of the game board
       | . | . | . |
       | . | . | . |
 
-  Scenario: Any dead cell with exactly three live neighbours becomes a live cell.
+  Scenario: Any dead cell with eXactly three live neighbours becomes a live cell.
     Given the following game board:
       | . | X | . |
       | X | . | X |
@@ -30,7 +30,7 @@ Feature: Evolution of the game board
     When a generation passes
     Then the center cell should be dead 
 
-  Scenario: Any live cell with two or three live neighbours lives on to the next generation.
+  Scenario: Any live cell with two or three live neighbours lives on to the neXt generation.
     Given the following game board:
       | . | X | . |
       | X | X | . |
@@ -38,68 +38,64 @@ Feature: Evolution of the game board
     When a generation passes
     Then the center cell should be alive
 
-  @ignore
   Scenario: Block
     Given the following game board:
       | . | . | . | . | . |
-      | . | x | x | . | . |
-      | . | x | x | . | . |
+      | . | X | X | . | . |
+      | . | X | X | . | . |
       | . | . | . | . | . |
       | . | . | . | . | . |
     When a generation passes
     Then the board should look like:
       | . | . | . | . | . |
-      | . | x | x | . | . |
-      | . | x | x | . | . |
+      | . | X | X | . | . |
+      | . | X | X | . | . |
       | . | . | . | . | . |
       | . | . | . | . | . |
 
-  @ignore
   Scenario: Beehive
     Given the following game board:
       | . | . | . | . | . | . |
-      | . | . | x | x | . | . |
-      | . | x | . | . | x | . |
-      | . | . | x | x | . | . |
+      | . | . | X | X | . | . |
+      | . | X | . | . | X | . |
+      | . | . | X | X | . | . |
       | . | . | . | . | . | . |
     When a generation passes
     Then the board should look like:
       | . | . | . | . | . | . |
-      | . | . | x | x | . | . |
-      | . | x | . | . | x | . |
-      | . | . | x | x | . | . |
+      | . | . | X | X | . | . |
+      | . | X | . | . | X | . |
+      | . | . | X | X | . | . |
       | . | . | . | . | . | . |
 
-  @ignore
   Scenario: Loaf
     Given the following game board:
       | . | . | . | . | . | . |
-      | . | . | x | x | . | . |
-      | . | x | . | . | x | . |
-      | . | . | x | . | x | . |
-      | . | . | . | x | . | . |
+      | . | . | X | X | . | . |
+      | . | X | . | . | X | . |
+      | . | . | X | . | X | . |
+      | . | . | . | X | . | . |
       | . | . | . | . | . | . |
     When a generation passes
     Then the board should look like:
       | . | . | . | . | . | . |
-      | . | . | x | x | . | . |
-      | . | x | . | . | x | . |
-      | . | . | x | . | x | . |
-      | . | . | . | x | . | . |
+      | . | . | X | X | . | . |
+      | . | X | . | . | X | . |
+      | . | . | X | . | X | . |
+      | . | . | . | X | . | . |
       | . | . | . | . | . | . |
 
-  @ignore
   Scenario: Boat
     Given the following game board:
       | . | . | . | . | . |
-      | . | x | x | . | . |
-      | . | x | . | x | . |
-      | . | . | x | . | . |
+      | . | X | X | . | . |
+      | . | X | . | X | . |
+      | . | . | X | . | . |
       | . | . | . | . | . |
     When a generation passes
     Then the board should look like:
       | . | . | . | . | . |
-      | . | x | x | . | . |
-      | . | x | . | x | . |
-      | . | . | x | . | . |
+      | . | X | X | . | . |
+      | . | X | . | X | . |
+      | . | . | X | . | . |
       | . | . | . | . | . |
