@@ -38,7 +38,7 @@ Feature: Evolution of the game board
     When a generation passes
     Then the center cell should be alive
 
-    @ignore
+  @ignore
   Scenario: Block
     Given the following game board:
       | . | . | . | . | . |
@@ -54,7 +54,7 @@ Feature: Evolution of the game board
       | . | . | . | . | . |
       | . | . | . | . | . |
 
-    @ignore
+  @ignore
   Scenario: Beehive
     Given the following game board:
       | . | . | . | . | . | . |
@@ -70,7 +70,7 @@ Feature: Evolution of the game board
       | . | . | x | x | . | . |
       | . | . | . | . | . | . |
 
-    @ignore
+  @ignore
   Scenario: Loaf
     Given the following game board:
       | . | . | . | . | . | . |
@@ -88,7 +88,7 @@ Feature: Evolution of the game board
       | . | . | . | x | . | . |
       | . | . | . | . | . | . |
 
-    @ignore
+  @ignore
   Scenario: Boat
     Given the following game board:
       | . | . | . | . | . |
