@@ -3,6 +3,7 @@ require 'forwardable'
 class Board
   extend Forwardable
   def_delegators :@rows, :each_with_index, :[]
+  attr_reader :rows
   def initialize board
     @rows = board
   end
